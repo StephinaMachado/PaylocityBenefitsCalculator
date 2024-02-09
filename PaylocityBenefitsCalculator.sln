@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paylocity.BenefitsCalculator.Api", "Paylocity.BenefitsCalculator.Api\Paylocity.BenefitsCalculator.Api.csproj", "{CDEB9AC3-1E00-4646-979B-8198A3D019F5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paylocity.BenefitsCalculator.Common", "Paylocity.BenefitsCalculator.Common\Paylocity.BenefitsCalculator.Common.csproj", "{686153AB-5DA9-407E-BD82-916FC06C7991}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paylocity.BenefitsCalculator.Data", "Paylocity.BenefitsCalculator.Data\Paylocity.BenefitsCalculator.Data.csproj", "{E2280BBB-6FCC-4932-B916-D04F2A461C38}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paylocity.BenefitsCalculator.Infrastructure", "Paylocity.BenefitsCalculator.Infrastructure\Paylocity.BenefitsCalculator.Infrastructure.csproj", "{37C94407-6B5C-4ED2-86D1-D2400C954DC6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTests", "Paylocity.BenefitsCalculator.Api.Test\ApiTests.csproj", "{9BD80BE7-3493-4911-96EE-ABF5DF7F681B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDEB9AC3-1E00-4646-979B-8198A3D019F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDEB9AC3-1E00-4646-979B-8198A3D019F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDEB9AC3-1E00-4646-979B-8198A3D019F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDEB9AC3-1E00-4646-979B-8198A3D019F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{686153AB-5DA9-407E-BD82-916FC06C7991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{686153AB-5DA9-407E-BD82-916FC06C7991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{686153AB-5DA9-407E-BD82-916FC06C7991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{686153AB-5DA9-407E-BD82-916FC06C7991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2280BBB-6FCC-4932-B916-D04F2A461C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2280BBB-6FCC-4932-B916-D04F2A461C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2280BBB-6FCC-4932-B916-D04F2A461C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2280BBB-6FCC-4932-B916-D04F2A461C38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37C94407-6B5C-4ED2-86D1-D2400C954DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C94407-6B5C-4ED2-86D1-D2400C954DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C94407-6B5C-4ED2-86D1-D2400C954DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C94407-6B5C-4ED2-86D1-D2400C954DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BD80BE7-3493-4911-96EE-ABF5DF7F681B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BD80BE7-3493-4911-96EE-ABF5DF7F681B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BD80BE7-3493-4911-96EE-ABF5DF7F681B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BD80BE7-3493-4911-96EE-ABF5DF7F681B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0135F7D6-8A21-42E1-8072-1B6903BF2F97}
+	EndGlobalSection
+EndGlobal
