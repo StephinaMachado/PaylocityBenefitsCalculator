@@ -124,7 +124,7 @@ namespace Api.UnitTest
                 counter++;
             }
 
-            var responseResult = await HttpClient.GetAsync("/api/v1/dependents");
+            var responseResult = await HttpClient.GetAsync("/api/v1/EmployeeDependent/GetAll");
 
             await responseResult.ShouldReturn(HttpStatusCode.OK, dependentsExpected.OrderByDescending(x => x.Id).ToList());
         }
@@ -158,7 +158,7 @@ namespace Api.UnitTest
                 Gender = Gender.Female,
             };
 
-            var response = await HttpClient.GetAsync($"/api/v1/dependents/{dependent.Id}");
+            var response = await HttpClient.GetAsync($"/api/v1/EmployeeDependent/{dependent.Id}");
 
             //Asert
             await response.ShouldReturn(HttpStatusCode.OK, dependent);
@@ -169,7 +169,7 @@ namespace Api.UnitTest
         //task: make test pass
         public async Task WhenAskedForANonexistentDependent_ShouldReturn404()
         {
-            var response = await HttpClient.GetAsync("/api/v1/dependents/-1");
+            var response = await HttpClient.GetAsync("/api/v1/EmployeeDependent/-1");
 
             //Asert
             await response.ShouldReturn(HttpStatusCode.NotFound);
