@@ -24,7 +24,7 @@ namespace Api.UnitTest
 
         private static void AssertCommonResponseParts(this HttpResponseMessage response, HttpStatusCode statusCode)
         {
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            Assert.Equal(statusCode, response.StatusCode);
         }
     }
 }

@@ -28,14 +28,14 @@ namespace Api.UnitTest
         {
             var serializedObject = JsonSerializer.Serialize(employee);
             var data = new StringContent(serializedObject, Encoding.UTF8, "application/json");
-            return await HttpClient.PostAsync("/api/v1/employees", data);
+            return await HttpClient.PostAsync("/api/v1/employee", data);
         }
 
         public async Task<HttpResponseMessage> CreateDependent(CreateDependentModel dependent)
         {
             var serializedObject = JsonSerializer.Serialize(dependent);
             var data = new StringContent(serializedObject, Encoding.UTF8, "application/json");
-            return await HttpClient.PostAsync("/api/v1/dependents", data);
+            return await HttpClient.PostAsync("/api/v1/EmployeeDependent", data);
         }
 
         public void Dispose()

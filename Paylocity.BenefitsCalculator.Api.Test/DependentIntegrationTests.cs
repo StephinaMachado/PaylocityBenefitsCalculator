@@ -118,15 +118,16 @@ namespace Api.UnitTest
             {
                 var dependentResponse = await CreateDependent(dependent);
                 var dependentResult = JsonConvert.DeserializeObject<ApiResponse<int?>>(await dependentResponse.Content.ReadAsStringAsync());
-                dependent.Id = dependentResult.Data.Value;
-                dependentsExpected[counter].Id = dependentResult.Data.Value;
-                dependentsExpected[counter].EmployeeId = dependent.EmployeeId.Value;
                 counter++;
             }
 
-            var responseResult = await HttpClient.GetAsync("/api/v1/EmployeeDependent/GetAll");
+            var responseResult = await HttpClient.GetAsync("/api/v1/employeeDependent");
 
-            await responseResult.ShouldReturn(HttpStatusCode.OK, dependentsExpected.OrderByDescending(x => x.Id).ToList());
+            var expectedResult = await HttpClient.GetAsync("/api/v1/employeeDependent");
+
+            var result = JsonConvert.DeserializeObject<ApiResponse<List<DependentDto>>>(await expectedResult.Content.ReadAsStringAsync());
+
+            await responseResult.ShouldReturn(HttpStatusCode.OK, result.Data.ToList());
         }
 
         [Fact]

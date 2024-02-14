@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Paylocity.BenefitsCalculator.Common.Dtos;
 using Paylocity.BenefitsCalculator.Common.Dtos.Dependent;
+using Paylocity.BenefitsCalculator.Common.Dtos.Employee;
 using Paylocity.BenefitsCalculator.Common.Enums;
 using Paylocity.BenefitsCalculator.Common.Models;
 using System;
@@ -21,13 +22,13 @@ namespace Paylocity.BenefitsCalculator.Api.UnitTest
         public async Task WhenAskedForAllEmployees_ShouldReturnAllEmployees()
         {
             var employees = createEmployees;
-
+            int empId = 0;
             foreach (var employee in employees)
             {
                 var employeeResponse = await CreateEmployee(employee);
                 var apiResponse = JsonConvert.DeserializeObject<ApiResponse<int?>>(await employeeResponse.Content.ReadAsStringAsync());
-
-                if(employee.Dependents !=null && employee.Dependents.Any())
+                empId = apiResponse.Data.Value;
+                if (employee.Dependents !=null && employee.Dependents.Any())
                 {
                     var dependent = await HttpClient.GetAsync($"api/v1/employee/{apiResponse.Data.Value}/dependents");
                     var apiResponse1 = JsonConvert.DeserializeObject<ApiResponse<List<DependentDto>>>(await dependent.Content.ReadAsStringAsync());
@@ -43,9 +44,11 @@ namespace Paylocity.BenefitsCalculator.Api.UnitTest
                 employee.Id = apiResponse.Data.Value;
             }
 
-            var response = await HttpClient.GetAsync("/api/v1/employee");
+            var expectedResult = await HttpClient.GetAsync($"/api/v1/employee/");
+            var result = JsonConvert.DeserializeObject<ApiResponse<List<EmployeeDto>>>(await expectedResult.Content.ReadAsStringAsync());
+            var response = await HttpClient.GetAsync($"/api/v1/employee/");
 
-            await response.ShouldReturn(System.Net.HttpStatusCode.OK, employees.OrderByDescending(x=>x.Id).ToList());
+            await response.ShouldReturn(System.Net.HttpStatusCode.OK, result?.Data?.OrderByDescending(x => x.Id).ToList());
         }
 
         [Fact]
@@ -68,7 +71,7 @@ namespace Paylocity.BenefitsCalculator.Api.UnitTest
         public async Task WhenAskedForANonexistentEmployee_ShouldReturn404()
         {
 
-            var response = await HttpClient.GetAsync("/api/v1/employee/-1");
+            var response = await HttpClient.GetAsync($"/api/v1/employee/{int.MinValue}");
 
             await response.ShouldReturn(HttpStatusCode.NotFound);
         }

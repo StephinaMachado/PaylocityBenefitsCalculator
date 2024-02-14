@@ -106,9 +106,18 @@ public class EmployeeService : IEmployeeService
         try
         {
             response.Data = await _employeeRepository.DeleteEmployee(employeeId);
-            response.Success = true;
-            response.Message = "Employee deleted";
-            _logger.LogInformation($"Employee {employeeId} deleted");
+            if (response.Data)
+            {
+                response.Success = true;
+                response.Message = "Employee deleted";
+                _logger.LogInformation($"Employee {employeeId} deleted");
+            }
+            else
+            {
+                response.Success = false;
+                response.Message = "Unable to find employee";
+                _logger.LogError($"unable to find employee {employeeId}");
+            }
         }
         catch (Exception ex)
         {
